@@ -2,29 +2,39 @@ const express = require("express");
 const app = express();
 const port = 3000;
 
-app.use(express.text());
-app.use(express.json());
-app.use(express.urlencoded({extended:false}))
+// Middlewares↓ logger
+app.use((req, res, next) =>{
+    console.log(`Route: ${req.url} Method: ${req.method}`);
 
-app.post("/user", (req, res) => {
-    console.log(req.body)
-    res.send("<h1>Bro code</h1> <h3>new user created</h3>")
+    // ↓ next === continua
+    next()
 });
 
-// Concatenando request url con response  
-// Creando una parametro (params) en la URL con → :
+//🧶 middlewares 2 (isAunteticated)
+app.use((req, res, next) =>{
+    console.log(`Route: ${req.url} Method: ${req.method}`);
 
-app.get("/user/:names", (req, res) =>{
-    console.log(req.params)
-    res.send("hi bro")
+    // ↓ next === continua
+    next()
+});
+
+
+app.get("/dashboard", (req, res) => {
+    res.send("dashboard page")
 })
 
+app.get("/profile", (req, res) =>{
+    res.send("profile page");
+});
+
+app.get("/home", (req, res) =>{
+    res.send("AT HOME");
+});
+
+
+
 app.listen(port);
-console.log("Server port on" , port);
+console.log("server on port", port);
 
-
-
-
-
-// ⏳ 01:12:00
-// 📌 Request params 
+// ⏳ 01:49:00
+// 📌 introduccion a middlewares 2
