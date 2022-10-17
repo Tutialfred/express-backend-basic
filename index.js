@@ -1,19 +1,18 @@
 const express = require("express");
 const app = express();
 const port = 3000;
+const morgan = require("morgan");
 
 app.get("/home", (req, res) =>{
     res.send("AT HOME");
 });
 
+// Los middlewares contienen un tercer parametro llamado next() → diciendole que puede continuar
+// en el caso que no contenga el next, el middleware se queda cargando "tipo bucle infinito" por que no continua con la funcion 
 
-// Middlewares↓ logger
-app.use((req, res, next) =>{
-    console.log(`Route: ${req.url} Method: ${req.method}`);
+// Middlewares ↓ NPM Morgan
+app.use(morgan("dev"))
 
-    // ↓ next === continua
-    next()
-});
 
 //🧶 middlewares 2 → (isAunteticated) == "Proteger rutas 'dashboard' y 'profile'"
 app.use((req, res, next) =>{
@@ -39,5 +38,8 @@ app.get("/profile", (req, res) =>{
 app.listen(port);
 console.log("server on port", port);
 
-// ⏳ 01:57:00
-// 📌 Middleware interceptor
+
+
+
+// rest api === Representational State Transfer
+// Un servidor con ciertas URL en las que podemos procesar datos.
