@@ -5,7 +5,7 @@ const port = 3000;
 // Decirle al backend que procese los datos que le envia el cliente 
 app.use(express.text());
 app.use(express.json());
-app.use(express.urlencoded({extended:false}))
+app.use(express.urlencoded({extended:false})) //cuando enviamos algo parecido a JSON (thunder Client)
 
 app.post("/user", (req, res) => {
     console.log(req.body)
@@ -30,7 +30,7 @@ app.get("/user/:names", (req, res) =>{
 app.get("/users/:username/photo", (req, res) => {
 
     if(req.params.username === "tuti"){
-        return res.sendFile("./2023.PNG", { root: __dirname})
+        return res.sendFile("./2023.PNG", {  root: __dirname})
     }
 
     res.send("<h3>El usuario no tienes acceso</h3>")
