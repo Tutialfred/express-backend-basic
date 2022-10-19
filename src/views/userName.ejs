@@ -1,0 +1,21 @@
+<%- include('partials/header'); -%>
+<!-- IMPORTANDO EL HEAD DEL HTML -->
+
+
+<h1>List friends</h1>
+
+
+
+<!-- Haciendo condicionales en EJS -->
+<!-- Interpretando formato JS -->
+
+<% if (userOnline){ %>
+    <h2>En linea 🟢</h2>
+<% } else {%>
+    <h2>Desconectado 🔴</h2>
+<% } %>
+
+
+
+<%- include('partials/footer'); -%>
+<!-- IMPORTANDO EL FOOTER DEL HTML -->

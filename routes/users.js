@@ -2,11 +2,16 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/userName", (req, res) => {
-    res.send("Welcome to 'user Name ⚔'");
+
+    const userOnline = false
+
+    res.render("userName", { userOnline })
 });
 
 router.get("/profile", (req, res) => {
-    res.send("profile page official");
+
+    let  list = "List now is 5"
+    res.render("profile.ejs", { list })
 });
 
 module.exports = router
