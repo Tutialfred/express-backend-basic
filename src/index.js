@@ -6,6 +6,11 @@ const path = require("path");
 const users = require("../routes/users");
 const home = require("../routes/home")
 require("ejs");
+const connectDB = require("./dataBase")
+
+connectDB()
+// Antes de que empieze la aplicacion, de que configure express
+// Conectate a la base de datos
 
 
 // Settings ↓ 🔧 → "tipos de variables"
