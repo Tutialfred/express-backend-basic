@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const axios = require("axios")
 
 router.get("/", (req, res) => {
 
@@ -16,9 +17,12 @@ router.get("/dashboard", (req, res) => {
     // 'render' viene del → ejs
 });
 
-router.get("/post", (req, res) => {
+router.get("/post", async (req, res) => {
 
-    res.render("main")
+    const response = await axios.get("https://jsonplaceholder.typicode.com/posts")
+
+
+    res.render("post", { post: response.data})
 });
 
 module.exports = router

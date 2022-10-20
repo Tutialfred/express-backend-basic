@@ -51,5 +51,5 @@ console.log("server", app.get("appName"), "on port", port);
 // rest api === Representational State Transfer
 // Un servidor con ciertas URL en las que podemos procesar datos.
 
-// 03:30 🧪
-// EJS Syntax 🔥
+// 03:48 🧪
+// Base de Datos 🔥 === Database
